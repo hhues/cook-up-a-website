@@ -10,6 +10,8 @@ extents = Vector2( 71, 50 )
 [node name="Root" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+shoot_power = 250
+shoot_power_rate = 300
 
 [node name="TestBlock" type="RigidBody2D" parent="." groups=["components"]]
 position = Vector2( 827, 384 )

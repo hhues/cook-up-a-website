@@ -11,11 +11,9 @@ var dir_y = 0
 var sucked_object : RigidBody2D = null
 var objects_in_vision = []
 
-var shoot_power = 100
-
+export var shoot_power = 500
 export var suck_power = 200
-export var shoot_max = 1000
-export var shoot_power_rate = 30
+export var shoot_power_rate = 100
 
 var screensize
 var controller = false
@@ -76,6 +74,7 @@ func _input(event):
 
 
 func _process(delta):
+	screensize = get_viewport_rect().size
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screensize.y)
 	
@@ -83,7 +82,7 @@ func _process(delta):
 		suck_object(delta)
 	
 	if Input.is_action_pressed("player_shoot"):
-		start_charge()
+		start_charge(delta)
 	
 	if Input.is_action_just_released("player_shoot"):
 		shoot_object()
@@ -97,7 +96,7 @@ func suck_object(delta):
 
 
 func tip_touched(body):
-	if sucked_object == null:
+	if sucked_object == null && Input.is_action_pressed("player_suck"):
 		print("tip touched")
 		sucked_object = body
 		# sucked_object.mode = RigidBody2D.MODE_STATIC
@@ -105,12 +104,19 @@ func tip_touched(body):
 		$Vision.monitoring = false
 
 
-func start_charge():
-	print("charge...")
+func start_charge(delta):
+	if sucked_object != null:
+		$ChargeBar.value += delta * shoot_power_rate
 
 
 func shoot_object():
-	print("shoot!")
+	if sucked_object != null:
+		var direction = (get_global_mouse_position() - sucked_object.global_position).normalized()
+		sucked_object.apply_central_impulse(direction * $ChargeBar.value * shoot_power)
+		print("shoot!")
+		sucked_object = null
+		$ChargeBar.value = 0
+		$Vision.monitoring = true
 
 
 func _on_Range_body_entered(body):
