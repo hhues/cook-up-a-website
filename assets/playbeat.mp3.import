@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/playbeat.mp3-ac9971963ec34378513fb0e1f98483fb.mp3str"
+
+[deps]
+
+source_file="res://assets/playbeat.mp3"
+dest_files=[ "res://.import/playbeat.mp3-ac9971963ec34378513fb0e1f98483fb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

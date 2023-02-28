@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/up_1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://assets/right_stationary.png" type="Texture" id=12]
 [ext_resource path="res://assets/right_2.png" type="Texture" id=13]
 [ext_resource path="res://AnimatedSprite.gd" type="Script" id=14]
+[ext_resource path="res://assets/bggamebw.jpg" type="Texture" id=15]
+[ext_resource path="res://assets/playbeat.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Station/Station.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Component/Component.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -68,9 +72,16 @@ layer = -1
 [node name="ColorRect" type="ColorRect" parent="BackGround"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.321569, 0.25098, 0.25098, 1 )
+color = Color( 0.0627451, 0.0509804, 0.231373, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BackGround"]
+stream = ExtResource( 16 )
+volume_db = -20.101
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="BackGround"]
+texture = ExtResource( 15 )
+stretch_mode = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
@@ -78,3 +89,7 @@ frames = SubResource( 1 )
 animation = "right_stationary"
 script = ExtResource( 14 )
 TargetPath = NodePath("../Player")
+
+[node name="Station" parent="." instance=ExtResource( 17 )]
+
+[node name="Component" parent="." instance=ExtResource( 18 )]
