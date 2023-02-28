@@ -84,6 +84,8 @@ func _process(delta):
 	position.x = clamp(position.x, 0, screensize.x)
 	position.y = clamp(position.y, 0, screensize.y)
 	
+	
+	
 	if Input.is_action_pressed("player_suck"):
 		suck_object(delta)
 		if $SoundEffectRealease.is_playing():
@@ -93,7 +95,10 @@ func _process(delta):
 	if Input.is_action_just_released("player_suck"):
 		$SoundEffect.stop()
 		if not $SoundEffectRealease.is_playing():
+			$SoundEffectRealease.stream.loop = false
 			$SoundEffectRealease.play()
+	
+	
 	
 	if Input.is_action_pressed("player_shoot"):
 		start_charge(delta)
