@@ -70,6 +70,8 @@ extents = Vector2( 71, 50 )
 [node name="Root" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 5, 5 )
+shoot_power = 400
 
 [node name="BackGround" type="CanvasLayer" parent="."]
 layer = -1
@@ -99,8 +101,12 @@ TargetPath = NodePath("../Player")
 
 [node name="Component" parent="." groups=["components"] instance=ExtResource( 18 )]
 collision_mask = 7
+mass = 4.08
+linear_damp = 5.0
+angular_damp = 2.0
 
 [node name="TestBlock" type="RigidBody2D" parent="." groups=["components"]]
+visible = false
 position = Vector2( 906, 257 )
 collision_mask = 7
 mass = 4.08163

@@ -7,16 +7,16 @@
 extents = Vector2( 69, 73.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1, 448.5 )
+extents = Vector2( 6.5, 448.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 796.5, 1 )
+extents = Vector2( 796.5, 6.5 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 797.75, 2.5 )
+extents = Vector2( 797.75, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 2, 444 )
+extents = Vector2( 9, 452.5 )
 
 [node name="Station" type="StaticBody2D"]
 position = Vector2( 800, 450 )
@@ -30,17 +30,17 @@ shape = SubResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( -798, 2.5 )
+position = Vector2( -801.5, 2.5 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 447 )
+position = Vector2( 1, 447.5 )
 shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2( -1.75, -448.5 )
+position = Vector2( -1.75, -457 )
 shape = SubResource( 4 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2( 800, 4 )
+position = Vector2( 802, 0.5 )
 shape = SubResource( 5 )
