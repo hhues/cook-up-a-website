@@ -1,6 +1,62 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=16 format=2]
 
+[ext_resource path="res://assets/up_1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/up_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/right_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/left_stationary.png" type="Texture" id=5]
+[ext_resource path="res://assets/down_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/down_stationary.png" type="Texture" id=7]
+[ext_resource path="res://assets/left_1.png" type="Texture" id=8]
+[ext_resource path="res://assets/left_2.png" type="Texture" id=9]
+[ext_resource path="res://assets/down_2.png" type="Texture" id=10]
+[ext_resource path="res://assets/up_stationary.png" type="Texture" id=11]
+[ext_resource path="res://assets/right_stationary.png" type="Texture" id=12]
+[ext_resource path="res://assets/right_2.png" type="Texture" id=13]
+[ext_resource path="res://AnimatedSprite.gd" type="Script" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "down_stationary",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "left_stationary",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "right_stationary",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "up_stationary",
+"speed": 5.0
+} ]
 
 [node name="Root" type="Node"]
 
@@ -15,3 +71,10 @@ anchor_bottom = 1.0
 color = Color( 0.321569, 0.25098, 0.25098, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BackGround"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+animation = "right_stationary"
+script = ExtResource( 14 )
+TargetPath = NodePath("../Player")
