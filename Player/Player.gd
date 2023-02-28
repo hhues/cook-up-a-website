@@ -86,6 +86,14 @@ func _process(delta):
 	
 	if Input.is_action_pressed("player_suck"):
 		suck_object(delta)
+		if $SoundEffectRealease.is_playing():
+			$SoundEffectRealease.stop()
+		if not $SoundEffect.is_playing():
+			$SoundEffect.play()
+	if Input.is_action_just_released("player_suck"):
+		$SoundEffect.stop()
+		if not $SoundEffectRealease.is_playing():
+			$SoundEffectRealease.play()
 	
 	if Input.is_action_pressed("player_shoot"):
 		start_charge(delta)
