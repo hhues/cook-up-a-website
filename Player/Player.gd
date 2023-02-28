@@ -30,23 +30,29 @@ func get_input():
 	
 	if Input.is_action_pressed("player_right"):
 		dir_x += 1
+		$AnimatedSprite.play("right")
 	if Input.is_action_pressed("player_left"):
 		dir_x -= 1
-	
+		$AnimatedSprite.play("left")
 	if dir_x != 0:
 		input.x = lerp(input.x, dir_x * speed, acceleration)
 	else:
 		input.x = lerp(input.x, 0, friction)
-	
 	if Input.is_action_pressed("player_up"):
 		dir_y -= 1
+		$AnimatedSprite.play("up")
 	if Input.is_action_pressed("player_down"):
 		dir_y += 1
+		$AnimatedSprite.play("down")
 		
 	if dir_y != 0:
 		input.y = lerp(input.y, dir_y * speed, acceleration)
 	else:
 		input.y = lerp(input.y, 0, friction)
+	
+	if dir_x == 0 and dir_y ==0:
+		$AnimatedSprite.play("down_stationary")
+
 
 
 func _physics_process(delta):
