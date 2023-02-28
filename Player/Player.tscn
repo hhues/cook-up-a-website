@@ -5,7 +5,7 @@
 [ext_resource path="res://Player/Hand/Hand.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/charge_bar.png" type="Texture" id=4]
 [ext_resource path="res://assets/vacuum-cleaner-End.mp3" type="AudioStream" id=5]
-[ext_resource path="res://assets/vacuum-cleaner-Editedmp3.mp3" type="AudioStream" id=6]
+[ext_resource path="res://assets/vacuum-cleaner.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 34.2

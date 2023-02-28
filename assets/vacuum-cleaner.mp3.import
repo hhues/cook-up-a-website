@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vacuum-cleaner.mp3-e1246b194740cd20f58ebee2d65595e3.mp3str"
+
+[deps]
+
+source_file="res://assets/vacuum-cleaner.mp3"
+dest_files=[ "res://.import/vacuum-cleaner.mp3-e1246b194740cd20f58ebee2d65595e3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
