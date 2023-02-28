@@ -96,6 +96,6 @@ TargetPath = NodePath("../Player")
 
 [node name="Component" parent="." groups=["components"] instance=ExtResource( 18 )]
 collision_mask = 7
-mass = 4.08
+mass = 7.14286
 linear_damp = 3.0
-angular_damp = 2.0
+angular_damp = 3.0
